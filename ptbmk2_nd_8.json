@@ -20,7 +20,7 @@
     "misc":{
       "randomtrigger_1":{
         "description":"Random trigger that can optionally be set to fire only during beam spill",
-        "enable":false,
+        "enable":true,
         "fixed_freq":true,
         "beam_mode":false,
         "period":25000000,
@@ -53,21 +53,22 @@
         "duty"         : "0x3",
         "early_warning_window":{
           "use_count": false,
-          "beam_signal_mask": "0x2",
-          "window_length": "0x2F"
+          "beam_signal_mask": "0x4",
+          "window_length": "0x0"
         },
         "pre_arrival_window":{
-          "use_count": false,
-          "beam_signal_mask": "0x2",
-          "window_length": "0x2F"
+          "use_count": true,
+          "beam_signal_mask": "0x1",
+          "window_length": "0x410A"
         },
         "beam_acceptance_window":{
-          "use_count": false,
-          "beam_signal_mask": "0x2",
-          "window_length": "0x2F"
+          "use_count": true,
+          "beam_signal_mask": "0x0",
+          "window_length": "0x64"
         },
         "post_arrival_window":{
-          "window_length": "0x2F"
+          "beam_signal_mask": "0x0",
+          "window_length": "0x0"
         }
       },
       "debug_outs":{
@@ -82,45 +83,45 @@
       "command_mask" : {
         "description":"Masks which HLTs correspond to each command. No overlaps are allowed.",
         "A" : "0x3F",
-        "B" : "0x3",
+        "B" : "0x3F",
         "C" : "0x7F",
-        "T" : "0x0"
+        "T" : "0x1"
       },
       "trigger": [
         { "id":"HLT_1",
-          "description": "Beam and 4ch CRT trigger (LLT_11).",
-          "enable":true,
-          "minc" : "0x800",
+          "description": "Beam Acceptance AND upstream CRT (CRT layers AND-d).",
+          "enable":false,
+          "minc" : "0x20001000",
           "mexc" : "0x0",
           "prescale" : "0x1"
         },
         { "id":"HLT_2",
-          "description": "Reconstructable track beam trigger, no PDS selection, no CRT selection",
+          "description": "Beam Acceptance AND downstream CRT (CRT layers AND-d).",
           "enable":false,
-          "minc" : "0x2",
+          "minc" : "0x20002000",
           "mexc" : "0x0",
           "prescale" : "0x1"
         },
         { "id":"HLT_3",
-          "description": "Beam input 2 and NIM coincidence",
+          "description": "Beam Acceptance AND (up && down) stream CRT (CRT layers AND-d).",
           "enable":false,
-          "minc" : "0x5",
+          "minc" : "0x20003000",
           "mexc" : "0x0",
           "prescale" : "0x1"
         },
         { "id":"HLT_4",
-          "description": "Reconstructable track beam trigger, no PDS selection, no CRT selection",
+          "description": "Start of Beam Acceptance Window trigger",
           "enable":false,
-          "minc" : "0x2",
-          "mexc" : "0xC",
+          "minc" : "0x20000000",
+          "mexc" : "0x0",
           "prescale" : "0x1"
         },
         { "id":"HLT_5",
-          "description": "Pure Cosmic trigger",
+          "description": "Start of Beam Pre-Arrival Window (BES signal) trigger",
           "enable":false,
-          "minc" : "0x2",
+          "minc" : "0x10000000",
           "mexc" : "0x0",
-          "prescale" : "0x1"
+          "prescale" : "0xA"
         },
         { "id":"HLT_6",
           "description": "Pure Cosmic trigger",
@@ -161,31 +162,31 @@
         ]
       },
       "crt":{
-        "channel_mask": "0xF",
+        "channel_mask": "0x3FFF",
         "pixelate": false,
         "reshape_length" : 50,
         "delays":[0,0,0,0,0,0,0,0,0,0,0,0,0,0],
         "triggers": [
           { "id":"LLT_11",
-            "description": "4 CRT channel OR (type=0x1 is >Count)",
+            "description": "CRT up/down stream all channels OR-d (type=0x1 is >Count)",
             "enable":true,
-            "mask" : "0xF",
+            "mask" : "0x550",
             "type" : "0x1",
             "count" : "0x0"
           },
           { "id":"LLT_12",
-            "description": "Any CRT LVDS input",
-            "enable":false,
-            "mask" : "0x3FFF",
-            "type" : "0x1",
-            "count" : "0x0"
+            "description": "CRT upstream XY layers AND-d",
+            "enable":true,
+            "mask" : "0x500",
+            "type" : "0x2",
+            "count" : "0x2"
           },
           { "id":"LLT_13",
-            "description": "Any downstream CRT Saleve side ",
-            "enable":false,
-            "mask" : "0xFF",
-            "type" : "0x1",
-            "count" : "0x0"
+            "description": "CRT downstream XY layers AND-d",
+            "enable":true,
+            "mask" : "0x50",
+            "type" : "0x2",
+            "count" : "0x2"
           },
           { "id":"LLT_15",
             "description": "Any upstream CRT Jura side",

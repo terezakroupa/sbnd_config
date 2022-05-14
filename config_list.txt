@@ -1,0 +1,77 @@
+=============================================================
+-- ptbmk2_nd_0.json
+  * Beam Acceptance and DOWNstream CRT trigger. Caen trigger outputs enabled.
+  * LLT
+    a. CRT DOWNstream X && Y (CRT inputs stretched to 1us)
+    b. 2us Beam Acceptance window (333us after gated BES)
+  * HLT
+    * a && b
+
+=============================================================
+-- ptbmk2_nd_1.json
+  * Beam Acceptance and UPstream CRT trigger. Caen trigger outputs enabled.
+  * LLT
+    a. CRT UPstream X && Y (CRT inputs stretched to 1us)
+    b. 2us Beam Acceptance window (333us after gated BES)
+  * HLT
+    * a && b
+
+=============================================================
+-- ptbmk2_nd_2.json
+  * Beam Acceptance and OR of UP/DOWNstream CRT trigger. Caen trigger outputs enabled.
+  * LLT
+    a. CRT UPstream X && Y (CRT inputs stretched to 1us)
+    b. CRT DOWNstream X && Y (CRT inputs stretched to 1us)
+    c. 2us Beam Acceptance window (333us after gated BES)
+  * HLT
+    * a && c
+    * b && c
+
+=============================================================
+-- ptbmk2_nd_3.json
+  * Beam Acceptance and AND of UP/DOWNstream CRT trigger. Caen trigger outputs enabled.
+  * LLT
+    a. CRT UPstream X && Y (CRT inputs stretched to 1us)
+    b. CRT DOWNstream X && Y (CRT inputs stretched to 1us)
+    c. 2us Beam Acceptance window (333us after gated BES)
+  * HLT
+    * a && b && c
+
+=============================================================
+-- ptbmk2_nd_4.json
+  * Beam Acceptance trigger. Caen trigger outputs enabled.
+  * LLT
+    a. 2us Beam Acceptance window (333us after gated BES)
+  * HLT
+    * a (trigger at start of Beam Acceptance Window)
+
+=============================================================
+-- ptbmk2_nd_5.json
+  * Beam Acceptance Prescaled by 10 trigger. Caen trigger outputs enabled.
+  * LLT
+    a. 2us Beam Acceptance window (333us after gated BES)
+  * HLT
+    * a (trigger at start of Beam Acceptance Window, prescale by 10)
+
+=============================================================
+-- ptbmk2_nd_6.json
+  * Beam Pre-Arrival (gated BES) trigger. Caen trigger outputs enabled.
+  * LLT
+    a. gated BES signal rising edge
+  * HLT
+    * a (trigger at start of Pre-Arrival Window)
+
+=============================================================
+-- ptbmk2_nd_7.json
+  * Beam Pre-Arrival (gated BES) Prescaled by 10 trigger. Caen trigger outputs enabled.
+  * LLT
+    a. gated BES signal rising edge
+  * HLT
+    * a (Prescaled by 10, trigger at start of Pre-Arrival Window)
+
+=============================================================
+-- ptbmk2_nd_8.json
+  * Random fixed frequency fake trigger 2Hz. Caen trigger outputs enabled.
+  * LLT
+  * HLT
+    * Random fixed freq. trigger
