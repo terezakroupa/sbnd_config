@@ -12,7 +12,7 @@
   * Beam Acceptance and UPstream CRT trigger. Caen trigger outputs enabled.
   * LLT
     a. CRT UPstream X && Y (CRT inputs stretched to 1us)
-    b. 2us Beam Acceptance window (333us after gated BES)
+    b. 8us Beam Acceptance window (330us after gated BES)
   * HLT
     * a && b
 
@@ -63,9 +63,9 @@
 
 =============================================================
 -- ptbmk2_nd_7.json
-  * Beam Pre-Arrival (gated BES) Prescaled by 10 trigger. Caen trigger outputs enabled.
+  * Beam Acceptance (330us after gated BES) Prescaled by 10 trigger. Caen trigger outputs enabled.
   * LLT
-    a. gated BES signal rising edge
+    a. 8us Beam Acceptance window (330us after gated BES)
   * HLT
     * a (Prescaled by 10, trigger at start of Pre-Arrival Window)
 
@@ -75,3 +75,50 @@
   * LLT
   * HLT
     * Random fixed freq. trigger
+
+=============================================================
+-- ptbmk2_nd_9.json
+  * Beam Acceptance, Beam Acceptance AND UPstream CRT, Beam Acceptance AND DOWNstream CRT  trigger. Caen trigger outputs enabled.
+  * LLT
+    a. CRT UPstream X && Y (CRT inputs stretched to 1us)
+    b. CRT DOWNstream X && Y (CRT inputs stretched to 1us)
+    c. 8us Beam Acceptance window (330us after gated BES) 
+  * HLT
+    * 1. a && c
+    * 2. b && c
+    * 5. c (Prescale=10)
+
+=============================================================
+-- ptbmk2_nd_10.json
+  * Beam Acceptance (333.3us after gated BES) centered in beam window. Prescaled by 100 trigger. Caen trigger outputs enabled.
+  * LLT
+    a. 2us Beam Acceptance window (333.3us after gated BES)
+  * HLT
+    * a (Prescaled by 100, trigger at start of Pre-Arrival Window)
+
+=============================================================
+-- ptbmk2_nd_11.json
+  * MTCA test trigger. Caen trigger outputs enabled.
+   * LLT
+    a. 2us Beam Acceptance window (333.3us after gated BES)
+  * HLT
+    * a (Prescaled by 100, trigger at start of Pre-Arrival Window)
+
+
+=============================================================
+-- ptbmk2_nd_15.json
+  * CRT OR of Up Down stream with T1 reset. Caen trigger outputs enabled.
+   * LLT
+    a. 3ms Beam Acceptance window (333us after gated BES)
+  * HLT
+    * a. CRT Up stream, AND of X,Y layers
+    * b. CRT Down stream, AND of X,Y layers
+=============================================================
+-- ptbmk2_nd_16.json
+  * Start of Beam Window Trigger with T1 reset. Caen flash trigger and event trigger enabled.
+   * T1 reset 100ns long, 20ns after BES
+   * LLT
+    a. 2us Beam Acceptance window (333us after gated BES)
+  * HLT
+    * a. Start of 2us beam window
+
