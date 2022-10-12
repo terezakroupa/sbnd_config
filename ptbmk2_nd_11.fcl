@@ -1,9 +1,9 @@
-{
+board_config : '{
   "ctb":{
     "sockets":{
         "receiver":{
             "rollover":500000,
-            "host":"localhost",
+            "host":"10.226.35.150",
             "port":8992
       },
       "monitor":{
@@ -52,19 +52,19 @@
         "period"       : "0x3",
         "duty"         : "0x3",
         "early_warning_window":{
-          "use_count": false,
+          "use_count": true,
           "beam_signal_mask": "0x4",
-          "window_length": "0x0"
+          "window_length": "0x3FAC"
         },
         "pre_arrival_window":{
           "use_count": true,
-          "beam_signal_mask": "0x1",
-          "window_length": "0x410A"
+          "beam_signal_mask": "0x4",
+          "window_length": "0x320"
         },
         "beam_acceptance_window":{
           "use_count": true,
           "beam_signal_mask": "0x0",
-          "window_length": "0x64"
+          "window_length": "0x1"
         },
         "post_arrival_window":{
           "beam_signal_mask": "0x0",
@@ -89,16 +89,16 @@
       },
       "trigger": [
         { "id":"HLT_1",
-          "description": "Beam Acceptance AND downstream CRT (CRT layers AND-d).",
-          "enable":true,
-          "minc" : "0x20001000",
+          "description": "Beam Acceptance AND upstream CRT (CRT layers AND-d).",
+          "enable"true:,
+          "minc" : "0x10004000",
           "mexc" : "0x0",
-          "prescale" : "0x1"
+          "prescale" : "0x32"
         },
         { "id":"HLT_2",
-          "description": "Reconstructable track beam trigger, no PDS selection, no CRT selection",
+          "description": "Beam Acceptance AND downstream CRT (CRT layers AND-d).",
           "enable":false,
-          "minc" : "0x2",
+          "minc" : "0x10002000",
           "mexc" : "0x0",
           "prescale" : "0x1"
         },
@@ -143,12 +143,13 @@
       "pds":{
         "channel_mask":"0x3FF",
         "reshape_length" : 50,
+        "reshape_flash_out_length" : 5,
         "delays":[0,0,0,0,0,0,0,0,0,0],
         "triggers": [
           { "id":"LLT_14",
             "description": "Any CAEN input",
             "enable":false,
-            "mask" : "0x3FF",
+            "mask" : "0xFC00",
             "type" : "0x1",
             "count" : "0x0"
           },
@@ -169,22 +170,22 @@
         "triggers": [
           { "id":"LLT_11",
             "description": "CRT up/down stream all channels OR-d (type=0x1 is >Count)",
-            "enable":true,
-            "mask" : "0x550",
+            "enable":false,
+            "mask" : "0xF",
             "type" : "0x1",
             "count" : "0x0"
           },
           { "id":"LLT_12",
             "description": "CRT upstream XY layers AND-d",
-            "enable":true,
-            "mask" : "0x500",
+            "enable":false,
+            "mask" : "0x3",
             "type" : "0x2",
             "count" : "0x2"
           },
           { "id":"LLT_13",
             "description": "CRT downstream XY layers AND-d",
-            "enable":true,
-            "mask" : "0x50",
+            "enable":false,
+            "mask" : "0xC",
             "type" : "0x2",
             "count" : "0x2"
           },
@@ -269,12 +270,25 @@
         ]
       },
       "mtcas":{
+        "mtca_thresh1": {
+          "hi": 3680,
+          "med": 3680,
+          "lo": 3680
+        },
+        "mtca_thresh2": {
+          "hi": 3680,
+          "med": 3570,
+          "lo": 3570
+        },
         "channel_mask": "0x3F",
         "reshape_length" : 50,
         "delays": [0,0,0,0,0,0],
         "triggers": [
         ]
       }, 
+      "nevis":{
+        "reshape_trig_out_length" : 3
+      },
       "nim":{
         "channel_mask": "0x3F",
         "reshape_length" : 50,
@@ -284,4 +298,4 @@
       }
     }
   }
-}
+}'
