@@ -143,6 +143,7 @@ board_config : '{
       "pds":{
         "channel_mask":"0x3FF",
         "reshape_length" : 50,
+        "reshape_flash_out_length" : 5,
         "delays":[0,0,0,0,0,0,0,0,0,0],
         "triggers": [
           { "id":"LLT_14",
@@ -285,6 +286,9 @@ board_config : '{
         "triggers": [
         ]
       }, 
+      "nevis":{
+        "reshape_trig_out_length" : 3
+      },
       "nim":{
         "channel_mask": "0x3F",
         "reshape_length" : 50,
