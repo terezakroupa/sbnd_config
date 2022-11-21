@@ -154,3 +154,38 @@
     * a && c
     * b && c
 
+=============================================================
+-- ptbmk2_nd_20.json
+  * Beam Acceptance and UPstream OR DOWNstream CRT trigger. T1 reset. Caen trigger outputs enabled.
+  * T1 reset 100ns long, 20ns after BES
+  * LLT
+    a. CRT UPstream X && Y (CRT inputs stretched to 1us)
+    b. CRT DOWNstream X && Y (CRT inputs stretched to 1us)
+    c. 8us Beam Acceptance window (333us after gated BES)
+  * HLT
+    * a && c
+    * b && c
+
+
+=============================================================
+-- ptbmk2_nd_21.json
+  * Beam Acceptance and OR of UP/DOWNstream CRT trigger. Caen trigger outputs enabled.
+  * LLT
+    a. CRT UPstream X && Y (CRT inputs stretched to 1us)
+    b. CRT DOWNstream X && Y (CRT inputs stretched to 1us)
+    c. 2us Beam Acceptance window (334us after gated BES)
+  * HLT
+    * a && c
+    * b && c
+
+
+=============================================================
+-- ptbmk2_nd_22.json
+  * Beam Acceptance and OR of UP/DOWNstream CRT trigger. Caen trigger outputs enabled.
+  * LLT
+    a. CRT UPstream X && Y (CRT inputs stretched to 240ns)
+    b. CRT DOWNstream X && Y (CRT inputs stretched to 240ns)
+    c. 5.56us Beam Acceptance window (331440ns after gated BES)
+  * HLT
+    * a && c
+    * b && c
