@@ -1,3 +1,14 @@
+-- nevis_fixed_freq directory
+  * Configurations in this directory produce triggers at fixed frequency,
+    uniformly distributed in time
+  * Frequency specified in each file name
+
+============================================================
+-- random_trigger directory
+  * Configurations in this directory produce trigers a given average frequency,
+    randomly distributed in time
+  * Average frequency specified in each file name
+
 =============================================================
 -- ptbmk2_nd_0.json
   * Beam Acceptance and DOWNstream CRT trigger. Caen trigger outputs enabled.
@@ -189,3 +200,16 @@
   * HLT
     * a && c
     * b && c
+
+=============================================================
+-- ptbmk2_nd_23.json
+  * Beam Acceptance and OR of UP/DOWNstream CRT trigger. Caen trigger outputs enabled.
+  * LLT
+    a. CRT UPstream X && Y (CRT inputs stretched to 240ns)
+    b. CRT DOWNstream X && Y (CRT inputs stretched to 240ns)
+    c. 5.56us Beam Acceptance window (331440ns after gated BES)
+  * HLT
+    * c
+    * a && c
+    * b && c
+    * (a && c) && (b && c)

@@ -52,13 +52,13 @@ board_config : '{
         "period"       : "0x3",
         "duty"         : "0x3",
         "early_warning_window":{
-          "use_count": false,
-          "beam_signal_mask": "0x2",
-          "window_length": "0x0"
+          "use_count": true,
+          "beam_signal_mask": "0x4",
+          "window_length": "0x1"
         },
         "pre_arrival_window":{
           "use_count": true,
-          "beam_signal_mask": "0x4",
+          "beam_signal_mask": "0x0",
           "window_length": "0x40BC"
         },
         "beam_acceptance_window":{
@@ -287,6 +287,9 @@ board_config : '{
         ]
       }, 
       "nevis":{
+        "reshape_trig_out_length" : 3
+      },
+      "wrtdc":{
         "reshape_trig_out_length" : 3
       },
       "nim":{
