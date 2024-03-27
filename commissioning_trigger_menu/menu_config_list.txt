@@ -1,0 +1,125 @@
+-- All configuations in this directory:
+  * Nevis deadtime, i.e. event trigger inhibit: 2.85 ms
+  * Nevis delay compared to a flash trigger: 0.367 ms
+  * Pre-arrival window before a beam/of-beam gate when flash triggers enabled: 1.5 ms
+  * Post-event flash window after an (non-delayed) event trigger when flash triggers enabled: 1.5 ms
+  * Beam acceptance: 3us
+  * Early warning (i.e. beam protection) started by delayed $1D: 1.35 ms
+  * T1 reset: 1.217ms after start of early warning (delayed $1D)
+  * Signal widths: 120ns for WR TDC, 140ns for CEANs, 60ns for NEVIS, 120 ns CRT reset
+
+=============================================================
+-- ptbmk2_nd_BNB_zero_bias.fcl
+  * Prescaled BNB Beam Acceptance gate. Event triggers only (sent to both PDS and NTB)
+  * LLT
+    a. LLT 30: Beam Acceptance
+    b. LLT 4: CRT t1 reset before BNB gate
+  * Event HLT
+    * HLT 1: a prescaled by 10
+  * Reset HLT (to CRT only)
+    * HLT 20: b
+
+=============================================================
+-- ptbmk2_nd_BNB_zero_bias_flash.fcl
+  * Prescaled BNB Beam Acceptance gate as event triggers. Flash triggers around the event trigger iflight coincidence present.
+  * LLT
+    a. LLT 30: Beam Acceptance
+    b. LLT 4: CRT t1 reset before BNB gate
+    c. LLT 17: Any CAEN input (light)
+    d. LLT 29: BNB Pre-arrival gate
+    e. LLT 0: Post-ET flash
+  * Event HLT
+    * HLT 1: a prescaled by 10
+  * Reset HLT (to CRT only)
+    * HLT 20: b
+  * Flash HLT (to PDS only) 
+    * HLT 28: c && d
+    * HLT 29: c && e
+
+=============================================================
+-- ptbmk2_nd_BNB_light.fcl
+  * Light from CAEN in coincidence with BNB Beam Acceptance gate as event triggers.
+  * LLT
+    a. LLT 30: Beam Acceptance
+    b. LLT 4: CRT t1 reset before BNB gate
+    c. LLT 17: Any CAEN input (light)
+  * Event HLT
+    * HLT 2: a && c
+  * Reset HLT (to CRT only)
+    * HLT 20: b
+
+=============================================================
+-- ptbmk2_nd_BNB_light_flash.fcl
+  * Light from CAEN in coincidence with BNB Beam Acceptance gate as event triggers. Flash triggers around the event trigger iflight coincidence present.
+  * LLT
+    a. LLT 30: Beam Acceptance
+    b. LLT 4: CRT t1 reset before BNB gate
+    c. LLT 17: Any CAEN input (light)
+    d. LLT 29: BNB Pre-arrival gate
+    e. LLT 0: Post-ET flash
+  * Event HLT
+    * HLT 2: a && c
+  * Reset HLT (to CRT only)
+    * HLT 20: b
+  * Flash HLT (to PDS only) 
+    * HLT 28: c && d
+    * HLT 29: c && e
+
+=============================================================
+-- ptbmk2_nd_off_beam_zero_bias.fcl
+  * Prescaled off-beam Beam Acceptance gate. Event triggers only (sent to both PDS and NTB)
+  * LLT
+    a. LLT 26: Off-beam Beam Acceptance
+    b. LLT 5: CRT t1 reset before off-beam gate
+  * Event HLT
+    * HLT 3: a prescaled by 10
+  * Reset HLT (to CRT only)
+    * HLT 21: b
+
+=============================================================
+-- ptbmk2_nd_off_beam_zero_bias_flash.fcl
+  * Prescaled off-beam Beam Acceptance gate as event triggers. Flash triggers around the event trigger iflight coincidence present.
+  * LLT
+    a. LLT 26: Off-beam Beam Acceptance
+    b. LLT 5: CRT t1 reset before off-beam gate
+    c. LLT 17: Any CAEN input (light)
+    d. LLT 25: Off-beam Pre-arrival gate
+    e. LLT 0: Post-ET flash
+  * Event HLT
+    * HLT 3: a prescaled by 10
+  * Reset HLT (to CRT only)
+    * HLT 21: b
+  * Flash HLT (to PDS only) 
+    * HLT 30: c && d
+    * HLT 29: c && e
+
+=============================================================
+-- ptbmk2_nd_off_beam_light.fcl
+  * Light from CAEN in coincidence with off-beam Beam Acceptance gate as event triggers.
+  * LLT
+    a. LLT 26: Off-beam Beam Acceptance
+    b. LLT 5: CRT t1 reset before off-beam gate
+    c. LLT 17: Any CAEN input (light)
+  * Event HLT
+    * HLT 4: a && c
+  * Reset HLT (to CRT only)
+    * HLT 21: b
+
+=============================================================
+-- ptbmk2_nd_off_beam_light_flash.fcl
+  * Light from CAEN in coincidence with off-beam Beam Acceptance gate as event triggers. Flash triggers around the event trigger iflight coincidence present.
+  * LLT
+    a. LLT 26: Off-beam Beam Acceptance
+    b. LLT 5: CRT t1 reset before off-beam gate
+    c. LLT 17: Any CAEN input (light)
+    d. LLT 25: Off-beam Pre-arrival gate
+    e. LLT 0: Post-ET flash
+  * Event HLT
+    * HLT 4: a && c
+  * Reset HLT (to CRT only)
+    * HLT 21: b
+  * Flash HLT (to PDS only) 
+    * HLT 30: c && d
+    * HLT 29: c && e
+
+=============================================================
