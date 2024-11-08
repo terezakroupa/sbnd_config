@@ -1,12 +1,13 @@
 -- All configuations in this directory:
-  * Nevis deadtime, i.e. event trigger inhibit: 2.85 ms
+  * Nevis deadtime, i.e. event trigger inhibit: 5 ms
   * Nevis delay compared to a flash trigger: 0.367 ms
-  * Pre-arrival window before a beam/of-beam gate when flash triggers enabled: 1.5 ms
+  * Pre-arrival window before a beam/of-beam gate when flash triggers enabled: ~1.5 ms
   * Post-event flash window after an (non-delayed) event trigger when flash triggers enabled: 1.5 ms
   * Beam acceptance: 3us
-  * Early warning (i.e. beam protection) started by delayed $1D: 1.35 ms
+  * Early warning (i.e. beam protection) started by delayed $1D: 1.315 ms
   * T1 reset: 1.217ms after start of early warning (delayed $1D)
-  * Signal widths: 120ns for WR TDC, 140ns for CEANs, 60ns for NEVIS, 120 ns CRT reset
+  * Signal widths: 160ns for WR TDC, 140ns for CAENs, 60ns for NEVIS, 120 ns CRT reset
+  * BES (BNB and odd-beam) delayed by 332us
 
 =============================================================
 -- ptbmk2_nd_BNB_zero_bias.fcl

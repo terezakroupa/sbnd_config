@@ -71,16 +71,16 @@ board_config : '{
       "inhibit_length" : "0x3D090",
       "trigger": [
         { "id":"HLT_1",
-          "description": "Zero Bias BNB. Prescaled by 10",
+          "description": "Zero Bias BNB. Prescaled by 2",
           "enable":true,
           "minc" : "0x40000000",
           "mexc" : "0x0",
-          "prescale" : "0xA"
+          "prescale" : "0x2"
         },
         { "id":"HLT_2",
-          "description": "BNB + Light",
-          "enable":false,
-          "minc" : "0x40020000",
+          "description": "BNB + MTCA Light",
+          "enable":true,
+          "minc" : "0x40004000",
           "mexc" : "0x0",
           "prescale" : "0x1"
         },
@@ -127,16 +127,16 @@ board_config : '{
           "prescale" : "0x1"
         },
         { "id":"HLT_28",
-          "description": "Pre Arrival + Light",
-          "enable":false,
-          "minc" : "0x20020000",
+          "description": "Pre Arrival + MTCA Light",
+          "enable":true,
+          "minc" : "0x20004000",
           "mexc" : "0x0",
           "prescale" : "0x1"
         },
         { "id":"HLT_29",
-          "description": "Post Event Trigger + Light",
-          "enable":false,
-          "minc" : "0x20000",
+          "description": "Post Event Trigger + MTCA Light",
+          "enable":true,
+          "minc" : "0x4001",
           "mexc" : "0x0",
           "prescale" : "0x1"
         },
@@ -158,7 +158,7 @@ board_config : '{
         "triggers": [
           { "id":"LLT_14",
             "description": "Any MTC/A input",
-            "enable":false,
+            "enable":true,
             "mask" : "0xFC00",
             "type" : "0x1",
             "count" : "0x0"
@@ -200,7 +200,7 @@ board_config : '{
           },
           { "id":"LLT_20",
             "description": "MTCA TOP HI",
-            "enable":false,
+            "enable":true,
             "mask" : "0x4000",
             "type" : "0x1",
             "count" : "0x0"
@@ -344,7 +344,7 @@ board_config : '{
       },
       "mtcas":{
         "mtca_thresh1": {
-          "hi": 2048,
+          "hi": 3219,
           "med": 2048,
           "lo": 2048
         },

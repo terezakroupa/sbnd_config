@@ -75,7 +75,7 @@ board_config : '{
           "enable":true,
           "minc" : "0x40000000",
           "mexc" : "0x0",
-          "prescale" : "0xA"
+          "prescale" : "0x1"
         },
         { "id":"HLT_2",
           "description": "BNB + Light",
@@ -128,15 +128,15 @@ board_config : '{
         },
         { "id":"HLT_28",
           "description": "Pre Arrival + Light",
-          "enable":false,
+          "enable":true,
           "minc" : "0x20020000",
           "mexc" : "0x0",
           "prescale" : "0x1"
         },
         { "id":"HLT_29",
           "description": "Post Event Trigger + Light",
-          "enable":false,
-          "minc" : "0x20000",
+          "enable":true,
+          "minc" : "0x20001",
           "mexc" : "0x0",
           "prescale" : "0x1"
         },
@@ -179,7 +179,7 @@ board_config : '{
           },
           { "id":"LLT_17",
             "description": "Any CAEN input",
-            "enable":false,
+            "enable":true,
             "mask" : "0x3FF",
             "type" : "0x1",
             "count" : "0x0"

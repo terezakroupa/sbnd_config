@@ -63,7 +63,7 @@ board_config : '{
     "HLT":{
       "command_mask" : {
         "description":"Masks which HLTs correspond to each command. No overlaps are allowed.",
-        "event_mask" : "0x3E",
+        "event_mask" : "0x7FE",
         "flash_mask" : "0x70000000",
         "reset_mask" : "0x300000"
       },
@@ -71,11 +71,11 @@ board_config : '{
       "inhibit_length" : "0x3D090",
       "trigger": [
         { "id":"HLT_1",
-          "description": "Zero Bias BNB. Prescaled by 10",
+          "description": "Zero Bias BNB",
           "enable":true,
           "minc" : "0x40000000",
           "mexc" : "0x0",
-          "prescale" : "0xA"
+          "prescale" : "0x1"
         },
         { "id":"HLT_2",
           "description": "BNB + Light",
@@ -111,6 +111,27 @@ board_config : '{
           "minc" : "0x4000",
           "mexc" : "0x0",
           "prescale" : "0x1"
+        },
+        { "id":"HLT_7",
+          "description": "CRT north and bottom, not all CRTs",
+          "enable":false,
+          "minc" : "0x1400",
+          "mexc" : "0xFF000040",
+          "prescale" : "0x1"
+        },
+        { "id":"HLT_8",
+          "description": "CRT north and east, not all CRTs",
+          "enable":true,
+          "minc" : "0x1100",
+          "mexc" : "0xFF000040",
+          "prescale" : "0xF"
+        },
+	{ "id":"HLT_9",
+          "description": "CRT west and east, not all CRTs",
+          "enable":false,
+          "minc" : "0x2100",
+          "mexc" : "0xFF000040",
+          "prescale" : "0xA"
         },
         { "id":"HLT_20",
           "description": "CRT T1 Reset before BNB",
@@ -236,61 +257,61 @@ board_config : '{
         "delays":[0,0,0,0,0,0,0,0,0,0,0,0,0,0],
         "triggers": [
           { "id":"LLT_6",
-            "description": "CRT northwall XY layers AND-d connector 2",
-            "enable":false,
-            "mask" : "0xC",
-            "type" : "0x2",
-            "count" : "0x2"
+            "description": "CRT all walls and channels AND-d (type=0x1 is >Count)",
+            "enable":true,
+            "mask" : "0x3FFF",
+            "type" : "0x1",
+            "count" : "0x4"
           },
           { "id":"LLT_7",
-            "description": "",
+            "description": "Any two sides",
             "enable":false,
             "mask" : "0x3",
             "type" : "0x2",
             "count" : "0x2"
           },
           { "id":"LLT_8",
-            "description": "",
-            "enable":false,
+            "description": "2A AND 2B - CRT east",
+            "enable":true,
             "mask" : "0xC",
             "type" : "0x2",
             "count" : "0x2"
           },
           { "id":"LLT_9",
-            "description": "",
-            "enable":false,
-            "mask" : "0x9",
-            "type" : "0x1",
-            "count" : "0x0"
+            "description": "3A AND 3B",
+            "enable":true,
+            "mask" : "0x30",
+            "type" : "0x2",
+            "count" : "0x2"
           },
           { "id":"LLT_10",
-            "description": "",
-            "enable":false,
-            "mask" : "0x6",
-            "type" : "0x1",
-            "count" : "0x0"
+            "description": "4A AND 4B - CRT bottom",
+            "enable":true,
+            "mask" : "0xC0",
+            "type" : "0x2",
+            "count" : "0x2"
           },
           { "id":"LLT_11",
-            "description": "",
-            "enable":false,
-            "mask" : "0x0",
-            "type" : "0x1",
-            "count" : "0x0"
+            "description": "5A AND 5B",
+            "enable":true,
+            "mask" : "0x300",
+            "type" : "0x2",
+            "count" : "0x2"
           },
           { "id":"LLT_12",
-            "description": "",
-            "enable":false,
-            "mask" : "0x0",
-            "type" : "0x1",
-            "count" : "0x0"
+            "description": "6A AND 6B - CRT north",
+            "enable":true,
+            "mask" : "0xC00",
+            "type" : "0x2",
+            "count" : "0x2"
           },
           { "id":"LLT_13",
-            "description": "",
-            "enable":false,
-            "mask" : "0x0",
-            "type" : "0x1",
-            "count" : "0x0"
-          }
+            "description": "7A AND 7B - CRT west",
+            "enable":true,
+            "mask" : "0x3000",
+            "type" : "0x2",
+            "count" : "0x2"
+	  }
         ]
       },
       "beam":{

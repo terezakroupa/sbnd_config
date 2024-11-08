@@ -71,11 +71,11 @@ board_config : '{
       "inhibit_length" : "0x3D090",
       "trigger": [
         { "id":"HLT_1",
-          "description": "Zero Bias BNB. Prescaled by 10",
+          "description": "Zero Bias BNB",
           "enable":true,
           "minc" : "0x40000000",
           "mexc" : "0x0",
-          "prescale" : "0xA"
+          "prescale" : "0x1"
         },
         { "id":"HLT_2",
           "description": "BNB + Light",
@@ -200,7 +200,7 @@ board_config : '{
           },
           { "id":"LLT_20",
             "description": "MTCA TOP HI",
-            "enable":false,
+            "enable":true,
             "mask" : "0x4000",
             "type" : "0x1",
             "count" : "0x0"
@@ -236,60 +236,60 @@ board_config : '{
         "delays":[0,0,0,0,0,0,0,0,0,0,0,0,0,0],
         "triggers": [
           { "id":"LLT_6",
-            "description": "CRT northwall XY layers AND-d connector 2",
+            "description": "CRT all walls and channels AND-d (type=0x1 is >Count)",
             "enable":false,
-            "mask" : "0xC",
-            "type" : "0x2",
-            "count" : "0x2"
+            "mask" : "0x3FFF",
+            "type" : "0x1",
+            "count" : "0x4"
           },
           { "id":"LLT_7",
-            "description": "",
+            "description": "1A AND 1B - CRT top high",
             "enable":false,
             "mask" : "0x3",
             "type" : "0x2",
             "count" : "0x2"
           },
           { "id":"LLT_8",
-            "description": "",
+            "description": "2A AND 2B - CRT east",
             "enable":false,
             "mask" : "0xC",
             "type" : "0x2",
             "count" : "0x2"
           },
           { "id":"LLT_9",
-            "description": "",
+            "description": "3A AND 3B - CRT south",
             "enable":false,
-            "mask" : "0x9",
-            "type" : "0x1",
-            "count" : "0x0"
+            "mask" : "0x30",
+            "type" : "0x2",
+            "count" : "0x2"
           },
           { "id":"LLT_10",
-            "description": "",
+            "description": "4A AND 4B - CRT bottom",
             "enable":false,
-            "mask" : "0x6",
-            "type" : "0x1",
-            "count" : "0x0"
+            "mask" : "0xC0",
+            "type" : "0x2",
+            "count" : "0x2"
           },
           { "id":"LLT_11",
-            "description": "",
+            "description": "5A AND 5B - CRT top low",
             "enable":false,
-            "mask" : "0x0",
-            "type" : "0x1",
-            "count" : "0x0"
+            "mask" : "0x300",
+            "type" : "0x2",
+            "count" : "0x2"
           },
           { "id":"LLT_12",
-            "description": "",
+            "description": "6A AND 6B - CRT north",
             "enable":false,
-            "mask" : "0x0",
-            "type" : "0x1",
-            "count" : "0x0"
+            "mask" : "0xC00",
+            "type" : "0x2",
+            "count" : "0x2"
           },
           { "id":"LLT_13",
-            "description": "",
+            "description": "7A AND 7B - CRT west",
             "enable":false,
-            "mask" : "0x0",
-            "type" : "0x1",
-            "count" : "0x0"
+            "mask" : "0x3000",
+            "type" : "0x2",
+            "count" : "0x2"
           }
         ]
       },
@@ -344,7 +344,7 @@ board_config : '{
       },
       "mtcas":{
         "mtca_thresh1": {
-          "hi": 2048,
+          "hi": 3669,
           "med": 2048,
           "lo": 2048
         },
@@ -364,7 +364,7 @@ board_config : '{
         "output_delay" : 18350
       },
        "wrtdc":{
-        "reshape_trig_out_length" : 7
+        "reshape_trig_out_length" : 5
       }
     }
   }

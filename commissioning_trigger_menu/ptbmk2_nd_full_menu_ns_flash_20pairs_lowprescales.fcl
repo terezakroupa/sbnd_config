@@ -63,7 +63,7 @@ board_config : '{
     "HLT":{
       "command_mask" : {
         "description":"Masks which HLTs correspond to each command. No overlaps are allowed.",
-        "event_mask" : "0x3E",
+        "event_mask" : "0xFFFFF",
         "flash_mask" : "0x70000000",
         "reset_mask" : "0x300000"
       },
@@ -71,30 +71,30 @@ board_config : '{
       "inhibit_length" : "0x3D090",
       "trigger": [
         { "id":"HLT_1",
-          "description": "Zero Bias BNB. Prescaled by 10",
+          "description": "Zero Bias BNB. Prescaled by 2",
           "enable":true,
           "minc" : "0x40000000",
           "mexc" : "0x0",
-          "prescale" : "0xA"
+          "prescale" : "0x2"
         },
         { "id":"HLT_2",
-          "description": "BNB + Light",
-          "enable":false,
-          "minc" : "0x40020000",
+          "description": "BNB + MTCA Light",
+          "enable":true,
+          "minc" : "0x40004000",
           "mexc" : "0x0",
           "prescale" : "0x1"
         },
         { "id":"HLT_3",
-          "description": "Off-Beam Gate Zero Bias. Prescaled by 10",
-          "enable": false,
+          "description": "Off-Beam Gate Zero Bias. Prescaled by 3",
+          "enable": true,
           "minc" : "0x4000000",
           "mexc" : "0xF0000000",
-          "prescale" : "0xA"
+          "prescale" : "0x3"
         },
         { "id":"HLT_4",
           "description": "Off-Beam Gate + Light",
-          "enable":false,
-          "minc" : "0x4020000",
+          "enable":true,
+          "minc" : "0x4004000",
           "mexc" : "0xF0000000",
           "prescale" : "0x1"
         },
@@ -112,6 +112,13 @@ board_config : '{
           "mexc" : "0x0",
           "prescale" : "0x1"
         },
+        { "id":"HLT_14",
+          "description": "CRT north and south only. Prescaled by 10",
+          "enable":true,
+          "minc" : "0x1200",
+          "mexc" : "0xFF002980",
+          "prescale" : "0xA"
+        },
         { "id":"HLT_20",
           "description": "CRT T1 Reset before BNB",
           "enable":true,
@@ -121,29 +128,29 @@ board_config : '{
         },
         { "id":"HLT_21",
           "description": "CRT T1 Reset before Off-Beam gate (not in BNB)",
-          "enable":false,
+          "enable":true,
           "minc" : "0x20",
           "mexc" : "0xF0000000",
           "prescale" : "0x1"
         },
         { "id":"HLT_28",
-          "description": "Pre Arrival + Light",
-          "enable":false,
-          "minc" : "0x20020000",
+          "description": "Pre Arrival + MTCA Light",
+          "enable":true,
+          "minc" : "0x20004000",
           "mexc" : "0x0",
           "prescale" : "0x1"
         },
         { "id":"HLT_29",
-          "description": "Post Event Trigger + Light",
-          "enable":false,
-          "minc" : "0x20000",
+          "description": "Post Event Trigger + MTCA Light",
+          "enable":true,
+          "minc" : "0x4001",
           "mexc" : "0x0",
           "prescale" : "0x1"
         },
         { "id":"HLT_30",
-          "description": "Off-Beam gate Pre Arrival + Light",
-          "enable":false,
-          "minc" : "0x2020000",
+          "description": "Off-Beam gate Pre Arrival + MTCA Light",
+          "enable":true,
+          "minc" : "0x2004000",
           "mexc" : "0xF0000000",
           "prescale" : "0x1"
         }
@@ -158,7 +165,7 @@ board_config : '{
         "triggers": [
           { "id":"LLT_14",
             "description": "Any MTC/A input",
-            "enable":false,
+            "enable":true,
             "mask" : "0xFC00",
             "type" : "0x1",
             "count" : "0x0"
@@ -200,7 +207,7 @@ board_config : '{
           },
           { "id":"LLT_20",
             "description": "MTCA TOP HI",
-            "enable":false,
+            "enable":true,
             "mask" : "0x4000",
             "type" : "0x1",
             "count" : "0x0"
@@ -236,60 +243,60 @@ board_config : '{
         "delays":[0,0,0,0,0,0,0,0,0,0,0,0,0,0],
         "triggers": [
           { "id":"LLT_6",
-            "description": "CRT northwall XY layers AND-d connector 2",
-            "enable":false,
-            "mask" : "0xC",
-            "type" : "0x2",
-            "count" : "0x2"
+            "description": "CRT all walls and channels AND-d (type=0x1 is >Count)",
+            "enable":true,
+            "mask" : "0x3FFF",
+            "type" : "0x1",
+            "count" : "0x4"
           },
           { "id":"LLT_7",
-            "description": "",
-            "enable":false,
+            "description": "1A AND 1B - CRT top high",
+            "enable":true,
             "mask" : "0x3",
             "type" : "0x2",
             "count" : "0x2"
           },
           { "id":"LLT_8",
-            "description": "",
-            "enable":false,
+            "description": "2A AND 2B - CRT east",
+            "enable":true,
             "mask" : "0xC",
             "type" : "0x2",
             "count" : "0x2"
           },
           { "id":"LLT_9",
-            "description": "",
-            "enable":false,
-            "mask" : "0x9",
-            "type" : "0x1",
-            "count" : "0x0"
+            "description": "3A AND 3B - CRT south",
+            "enable":true,
+            "mask" : "0x30",
+            "type" : "0x2",
+            "count" : "0x2"
           },
           { "id":"LLT_10",
-            "description": "",
-            "enable":false,
-            "mask" : "0x6",
-            "type" : "0x1",
-            "count" : "0x0"
+            "description": "4A AND 4B - CRT bottom",
+            "enable":true,
+            "mask" : "0xC0",
+            "type" : "0x2",
+            "count" : "0x2"
           },
           { "id":"LLT_11",
-            "description": "",
-            "enable":false,
-            "mask" : "0x0",
-            "type" : "0x1",
-            "count" : "0x0"
+            "description": "5A AND 5B - CRT top low",
+            "enable":true,
+            "mask" : "0x300",
+            "type" : "0x2",
+            "count" : "0x2"
           },
           { "id":"LLT_12",
-            "description": "",
-            "enable":false,
-            "mask" : "0x0",
-            "type" : "0x1",
-            "count" : "0x0"
+            "description": "6A AND 6B - CRT north",
+            "enable":true,
+            "mask" : "0xC00",
+            "type" : "0x2",
+            "count" : "0x2"
           },
           { "id":"LLT_13",
-            "description": "",
-            "enable":false,
-            "mask" : "0x0",
-            "type" : "0x1",
-            "count" : "0x0"
+            "description": "7A AND 7B - CRT west",
+            "enable":true,
+            "mask" : "0x3000",
+            "type" : "0x2",
+            "count" : "0x2"
           }
         ]
       },
@@ -344,7 +351,7 @@ board_config : '{
       },
       "mtcas":{
         "mtca_thresh1": {
-          "hi": 2048,
+          "hi": 3219,
           "med": 2048,
           "lo": 2048
         },
