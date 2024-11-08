@@ -1,3 +1,9 @@
+============================================================
+-- commissioning_trigger_menu directory
+  * Most current configs with commissioning triggers
+  * Description in menu_config_list.txt in that directory
+
+============================================================
 -- nevis_fixed_freq directory
   * Configurations in this directory produce triggers at fixed frequency,
     uniformly distributed in time
