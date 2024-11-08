@@ -1,0 +1,210 @@
+=============================================================
+-- ptbmk2_crt_1.fcl
+  * Coincidence of bottom and north CRT walls (horizontal and vertical AND). Exclude coincidences of all active walls to not count resets.
+  * LLT
+    a. CRT bottom X && Y (CRT inputs stretched to 240ns)
+    b. CRT north X && Y (CRT inputs stretched to 240ns)
+    c. CRT all
+    z. Off-beam EW
+  * Event Trig
+    * HLT 7: a && b not c
+  * CRT Reset
+    * HLT 21: z (Prescaled by 5)
+
+=============================================================
+-- ptbmk2_crt_2.fcl
+  * Coincidence of north and east CRT walls (horizontal and vertical AND). Exclude coincidences of all active walls to not count resets.
+  * LLT
+    a. CRT north X && Y (CRT inputs stretched to 240ns)
+    b. CRT east X && Y (CRT inputs stretched to 240ns)
+    c. CRT all
+    z. Off-beam EW
+  * Event Trig
+    * HLT 8: a && b not c
+  * CRT Reset
+    * HLT 21: z (Prescaled by 5)
+
+=============================================================
+-- ptbmk2_crt_3.fcl
+  * Coincidence of north and east CRT walls (horizontal and vertical AND) or coincidence of north and bottom CRT walls (horizontal and vertical AND). Exclude coincidences of all active walls to not count resets.
+  * LLT
+    a. CRT north X && Y (CRT inputs stretched to 240ns)
+    b. CRT east X && Y (CRT inputs stretched to 240ns)
+    c. CRT bottom X && Y (CRT inputs stretched to 240ns)
+    d. CRT all
+    z. Off-beam EW
+  * Event Trig
+    * HLT 8: a && b not d
+    * HLT 7: a && c not d
+  * CRT Reset
+    * HLT 21: z (Prescaled by 5)
+
+=============================================================
+-- ptbmk2_crt_4.fcl
+  * Coincidence of north and east CRT walls (horizontal and vertical AND). Exclude coincidences of all active walls to not count resets. Prescaled by 10.
+  * LLT
+    a. CRT north X && Y (CRT inputs stretched to 240ns)
+    b. CRT east X && Y (CRT inputs stretched to 240ns)
+    c. CRT all
+    z. Off-beam EW
+  * Event Trig
+    * HLT 8: a && b not c (Prescaled by 10)
+  * CRT Reset
+    * HLT 21: z (Prescaled by 5)
+
+=============================================================
+-- ptbmk2_crt_5.fcl
+  * Coincidence of west and east CRT walls (horizontal and vertical AND). Exclude coincidences of all active walls to not count resets. Prescaled by 1. CRT T1 reset from off-beam early warning.
+  * LLT
+    a. CRT west X && Y (CRT inputs stretched to 240ns)
+    b. CRT east X && Y (CRT inputs stretched to 240ns)
+    c. CRT all
+    z. Off-beam EW
+  * Event Triggers
+    * HLT 9: a && b not c (Prescaled by 1)
+  * CRT Reset
+    * HLT 21: z (Prescaled by 5)
+
+=============================================================
+-- ptbmk2_crt_6.fcl
+  * Coincidence of west and north CRT walls (horizontal and vertical AND). Exclude coincidences of all active walls to not count resets. Prescaled by 10.
+  * LLT
+    a. CRT west X && Y (CRT inputs stretched to 240ns)
+    b. CRT north X && Y (CRT inputs stretched to 240ns)
+    c. CRT all
+    z. Off-beam EW
+  * Event Trig
+    * HLT 10: a && b not c (Prescaled by 10)
+  * CRT Reset
+    * HLT 21: z (Prescaled by 5)
+
+=============================================================
+-- ptbmk2_crt_7.fcl
+  * Any of the following coincidences: N-E, N-W, or E-W walls (horizontal and vertical AND in each case). Exclude coincidences of all active walls to not count resets. Prescaled t give ~1.6Hz each.
+  * LLT
+    a. CRT west X && Y (CRT inputs stretched to 240ns)
+    b. CRT east X && Y (CRT inputs stretched to 240ns)
+    c. CRT north X && Y (CRT inputs stretched to 240ns)
+    d. CRT all
+    z. Off-beam EW
+  * Event Trig
+    * HLT 8: b && c not d (Prescaled by 66)
+    * HLT 9: a && b not d (Prescaled by 12)
+    * HLT 10: a && c not d (Prescaled by 78)
+  * CRT Reset
+    * HLT 21: z (Prescaled by 5)
+
+=============================================================
+-- ptbmk2_crt_8.fcl
+  * Coincidence of any 2 walls. Horizontal and vertical AND in each wall. Exclude coincidences of all active walls to not count resets.
+  * LLT
+    a. CRT west X && Y (CRT inputs stretched to 240ns)
+    b. CRT east X && Y (CRT inputs stretched to 240ns)
+    c. CRT north X && Y (CRT inputs stretched to 240ns)
+    d. CRT south X && Y (CRT inputs stretched to 240ns)
+    e. CRT all
+    z. Off-beam EW
+  * Event Trig
+    * HLT 8: b && c not e (Prescaled by 144)
+    * HLT 9: a && b not e (Prescaled by 24)
+    * HLT 10: a && c not e (Prescaled by 157)
+    * HLT 11: a && d not e (Prescaled by 157)
+    * HLT 12: b && d not e (Prescaled by 144)
+    * HLT 13: c && d not e (Prescaled by 60)
+  * CRT Reset
+    * HLT 21: z (Prescaled by 5)
+
+
+=============================================================
+-- ptbmk2_crt_9.fcl
+  * Coincidence of any 2 walls and light. Horizontal and vertical AND in each wall. Exclude coincidences of all active walls to not count resets. MTC/A thresholds set to roughly 6 and 10 pairs.
+  * LLT
+    a. CRT west X && Y (CRT inputs stretched to 240ns)
+    b. CRT east X && Y (CRT inputs stretched to 240ns)
+    c. CRT north X && Y (CRT inputs stretched to 240ns)
+    d. CRT south X && Y (CRT inputs stretched to 240ns)
+    e. CRT all
+    f. Any MTCA
+    z. Off-beam EW
+  * Event Trig
+    * HLT 8: b && c && f not e (Prescaled by 144)
+    * HLT 9: a && b && f not e (Prescaled by 24)
+    * HLT 10: a && c && f not e (Prescaled by 157)
+    * HLT 11: a && d && f not e (Prescaled by 157)
+    * HLT 12: b && d && f not e (Prescaled by 144)
+    * HLT 13: c && d && f not e (Prescaled by 60)
+  * CRT Reset
+    * HLT 21: z (Prescaled by 5)
+
+=============================================================
+-- ptbmk2_crt_10.fcl
+  * Coincidence of north and south CRT walls (horizontal and vertical AND). Exclude coincidences of all active walls to not count resets. Prescaled by 10
+  * LLT
+    a. CRT north X && Y (CRT inputs stretched to 240ns)
+    b. CRT south X && Y (CRT inputs stretched to 240ns)
+    c. CRT all
+    z. Off-beam EW
+  * Event Trig
+    * HLT 13: a && b not c (Prescaled by 10)
+  * CRT Reset
+    * HLT 21: z (Prescaled by 5)
+
+
+=============================================================
+-- ptbmk2_crt_11.fcl
+  * Coincidence of north and south CRT walls (horizontal and vertical AND). Exclude coincidences of all active walls to not count resets. NOT prescaled.
+  * LLT
+    a. CRT north X && Y (CRT inputs stretched to 240ns)
+    b. CRT south X && Y (CRT inputs stretched to 240ns)
+    c. CRT all
+    z. Off-beam EW
+  * Event Trig
+    * HLT 13: a && b not c (Prescaled by 1)
+  * CRT Reset
+    * HLT 21: z (Prescaled by 5)
+
+=============================================================
+-- ptbmk2_crt_12.fcl
+  * Coincidence of west and east CRT walls (horizontal and vertical AND). Exclude coincidences of all active walls to not count resets. Prescaled by 4. CRT T1 reset from off-beam early warning.
+  * LLT
+    a. CRT west X && Y (CRT inputs stretched to 240ns)
+    b. CRT east X && Y (CRT inputs stretched to 240ns)
+    c. CRT all
+    z. Off-beam EW
+  * Event Triggers
+    * HLT 9: a && b not c (Prescaled by 4)
+  * CRT Reset
+    * HLT 21: z (Prescaled by 5)
+
+
+=============================================================
+-- ptbmk2_crt_14.fcl
+  * Coincidence of north and south CRT walls (horizontal and vertical AND) only. Exclude north, south, and both tops. Ignore bottom. Prescaled by 1. CRT T1 reset from off-beam early warning.
+  * LLT
+    a. CRT west X && Y (CRT inputs stretched to 240ns)
+    b. CRT east X && Y (CRT inputs stretched to 240ns)
+    c. CRT north X && Y (CRT inputs stretched to 240ns)
+    d. CRT south X && Y (CRT inputs stretched to 240ns)
+    e. CRT top low X && Y (CRT inputs stretched to 240ns)
+    f. CRT top hi X && Y (CRT inputs stretched to 240ns)
+    z. Off-beam EW
+  * Event Triggers
+    * HLT 9: c && d not (a || b || e || f) (Not prescaled)
+  * CRT Reset
+    * HLT 21: z (Prescaled by 5)
+
+=============================================================
+-- ptbmk2_crt_15.fcl
+  * Coincidence of west and east CRT walls (horizontal and vertical AND) only. Exclude west, east, and both tops. Ignore bottom. Prescaled by 5. CRT T1 reset from off-beam early warning.
+  * LLT
+    a. CRT west X && Y (CRT inputs stretched to 240ns)
+    b. CRT east X && Y (CRT inputs stretched to 240ns)
+    c. CRT north X && Y (CRT inputs stretched to 240ns)
+    d. CRT south X && Y (CRT inputs stretched to 240ns)
+    e. CRT top low X && Y (CRT inputs stretched to 240ns)
+    f. CRT top hi X && Y (CRT inputs stretched to 240ns)
+    z. Off-beam EW
+  * Event Triggers
+    * HLT 9: a && b not (c || d || e || f) (Prescaled by 5)
+  * CRT Reset
+    * HLT 21: z (Prescaled by 5)
