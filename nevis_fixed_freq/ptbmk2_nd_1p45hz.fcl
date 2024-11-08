@@ -23,7 +23,7 @@ board_config : '{
         "enable":true,
         "fixed_freq":true,
         "beam_mode":false,
-        "period":3333333,
+        "period":34485000,
         "period_old":3333333,
         "seed":"0xACE2ACE1",
         "thresh_lo":"0x00000001",
@@ -360,7 +360,7 @@ board_config : '{
         ]
       }, 
       "nevis":{
-        "reshape_trig_out_length" : 2,
+        "reshape_trig_out_length" : 5,
         "output_delay" : 18350
       },
        "wrtdc":{

@@ -2,7 +2,7 @@ board_config : '{
   "ctb":{
     "sockets":{
       "receiver":{
-        "rollover":500000,
+        "rollover":50000,
         "host":"10.226.35.150",
         "port":8992
       },
@@ -23,7 +23,7 @@ board_config : '{
         "enable":true,
         "fixed_freq":true,
         "beam_mode":false,
-        "period":3333333,
+        "period":131178515,
         "period_old":3333333,
         "seed":"0xACE2ACE1",
         "thresh_lo":"0x00000001",

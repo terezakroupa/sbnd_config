@@ -23,7 +23,7 @@ board_config : '{
         "enable":true,
         "fixed_freq":true,
         "beam_mode":false,
-        "period":3333333,
+        "period":75000000,
         "period_old":3333333,
         "seed":"0xACE2ACE1",
         "thresh_lo":"0x00000001",
